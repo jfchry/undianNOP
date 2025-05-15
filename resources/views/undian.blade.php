@@ -22,14 +22,18 @@
       <p id="displayText" class="text-lg font-semibold text-gray-700 dark:text-gray-300 min-h-[1.5rem] transition-colors duration-500"></p>
     </div>
 
-    <div class="flex flex-col items-center space-y-4 mb-6">
+    <div class="flex flex-col items-center space-y-2 mb-6">
       <div class="text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Nomor Objek Pajak(NOP)</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">NOP</p>
         <p id="winnerNOP" class="text-2xl font-mono font-bold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
       <div class="text-center">
         <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Name</p>
         <p id="winnerName" class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
+      </div>
+      <div class="text-center">
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Address</p>
+        <p id="winnerAddress" class="text-base font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
     </div>
 
@@ -49,11 +53,12 @@
             <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">#</th>
             <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">NOP</th>
             <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Name</th>
+            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Address</th>
             <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Time</th>
           </tr>
         </thead>
-        <tbody class="text-gray-700 dark:text-gray-300 transition-colors duration-500">
-          <tr><td class="py-3 px-3 text-center" colspan="4">Belum ada pemenang</td></tr>
+        <tbody class="text-indigo-600 dark:text-indigo-400 transition-colors duration-500">
+          <tr><td class="py-3 px-3 text-center" colspan="5">Belum ada pemenang</td></tr>
         </tbody>
       </table>
     </div>
@@ -62,14 +67,26 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const participants = [
-        { nop: '12345', name: 'John Doe' },
-        { nop: '67890', name: 'Jane Smith' },
-        { nop: '54321', name: 'Alice Johnson' },
-        { nop: '98765', name: 'Bob Brown' }
+        { nop: '12345', name: 'John Doe', address: 'Jl. Merpati No.1, Jakarta' },
+        { nop: '67890', name: 'Jane Smith', address: 'Jl. Kenanga No.2, Bandung' },
+        { nop: '54321', name: 'Alice Johnson', address: 'Jl. Melati No.3, Surabaya' },
+        { nop: '98765', name: 'Bob Brown', address: 'Jl. Cempaka No.4, Medan' },
+        { nop: '11223', name: 'Charlie Lee', address: 'Jl. Mawar No.5, Yogyakarta' },
+        { nop: '33445', name: 'Diana Prince', address: 'Jl. Teratai No.6, Semarang' },
+        { nop: '55667', name: 'Ethan Hunt', address: 'Jl. Anggrek No.7, Palembang' },
+        { nop: '77889', name: 'Fiona Gallagher', address: 'Jl. Dahlia No.8, Malang' },
+        { nop: '99000', name: 'George Lopez', address: 'Jl. Flamboyan No.9, Makassar' },
+        { nop: '11122', name: 'Hannah Montana', address: 'Jl. Srikaya No.10, Denpasar' },
+        { nop: '33344', name: 'Ian Somerhalder', address: 'Jl. Cemara No.11, Balikpapan' },
+        { nop: '55566', name: 'Jasmine Rice', address: 'Jl. Rambutan No.12, Batam' },
+        { nop: '77788', name: 'Kevin Hart', address: 'Jl. Jambu No.13, Pekanbaru' },
+        { nop: '99900', name: 'Lana Del Rey', address: 'Jl. Apel No.14, Pontianak' },
+        { nop: '00011', name: 'Michael Scott', address: 'Jl. Duku No.15, Banjarmasin' }
       ];
 
       const winnerNOP = document.getElementById('winnerNOP');
       const winnerName = document.getElementById('winnerName');
+      const winnerAddress = document.getElementById('winnerAddress');
       const displayText = document.getElementById('displayText');
       const winnersTableBody = document.querySelector('#winnersTable tbody');
       const startButton = document.getElementById('startDraw');
@@ -121,7 +138,7 @@
         }, 6000);
       }
 
-      function addWinnerToTable(nop, name) {
+      function addWinnerToTable(nop, name, address) {
         winnerCount++;
         if (winnersTableBody.children.length === 1 && winnersTableBody.children[0].children.length === 1) {
           winnersTableBody.innerHTML = '';
@@ -131,24 +148,29 @@
         row.classList.add('border-t', 'border-gray-200', 'dark:border-gray-600');
 
         const cellIndex = document.createElement('td');
-        cellIndex.className = 'py-3 px-3 text-center';
+        cellIndex.className = 'py-3 px-3 text-center text-indigo-600 dark:text-indigo-400';
         cellIndex.textContent = winnerCount;
 
         const cellNOP = document.createElement('td');
-        cellNOP.className = 'py-3 px-3';
+        cellNOP.className = 'py-3 px-3 text-indigo-600 dark:text-indigo-400';
         cellNOP.textContent = nop;
 
         const cellName = document.createElement('td');
-        cellName.className = 'py-3 px-3';
+        cellName.className = 'py-3 px-3 text-indigo-600 dark:text-indigo-400';
         cellName.textContent = name;
 
+        const cellAddress = document.createElement('td');
+        cellAddress.className = 'py-3 px-3 text-indigo-600 dark:text-indigo-400';
+        cellAddress.textContent = address;
+
         const cellTime = document.createElement('td');
-        cellTime.className = 'py-3 px-3';
+        cellTime.className = 'py-3 px-3 text-indigo-600 dark:text-indigo-400';
         cellTime.textContent = new Date().toLocaleString();
 
         row.appendChild(cellIndex);
         row.appendChild(cellNOP);
         row.appendChild(cellName);
+        row.appendChild(cellAddress);
         row.appendChild(cellTime);
 
         winnersTableBody.appendChild(row);
@@ -163,13 +185,14 @@
 
         spinning = true;
         let count = 0;
-        let lastPicked = { nop: '', name: '' };
+        let lastPicked = { nop: '', name: '', address: '' };
 
         const intervalId = setInterval(() => {
           lastPicked = participants[Math.floor(Math.random() * participants.length)];
 
           winnerNOP.textContent = lastPicked.nop;
           winnerName.textContent = lastPicked.name;
+          winnerAddress.textContent = lastPicked.address;
           displayText.textContent = `Sedang mengundi... ${lastPicked.name}`;
 
           count++;
@@ -178,14 +201,16 @@
 
             winnerNOP.textContent = lastPicked.nop;
             winnerName.textContent = lastPicked.name;
+            winnerAddress.textContent = lastPicked.address;
             displayText.textContent = `🎉 Pemenangnya adalah: ${lastPicked.name} (${lastPicked.nop})`;
 
             triggerConfetti();
-            addWinnerToTable(lastPicked.nop, lastPicked.name);
+            addWinnerToTable(lastPicked.nop, lastPicked.name, lastPicked.address);
 
             setTimeout(() => {
               winnerNOP.textContent = '-';
               winnerName.textContent = '-';
+              winnerAddress.textContent = '-';
               displayText.textContent = '';
               spinning = false;
             }, 2000);
@@ -196,10 +221,11 @@
       startButton.addEventListener('click', spin);
 
       resetButton.addEventListener('click', () => {
-        winnersTableBody.innerHTML = '<tr><td class="py-3 px-3 text-center" colspan="4">Belum ada pemenang</td></tr>';
+        winnersTableBody.innerHTML = '<tr><td class="py-3 px-3 text-center" colspan="5">Belum ada pemenang</td></tr>';
         winnerCount = 0;
         winnerNOP.textContent = '-';
         winnerName.textContent = '-';
+        winnerAddress.textContent = '-';
         displayText.textContent = '';
         spinning = false;
       });
