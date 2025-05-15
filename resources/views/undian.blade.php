@@ -24,15 +24,15 @@
 
     <div class="flex flex-col items-center space-y-2 mb-6">
       <div class="text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">NOP</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Nomor Objek Pajak (Nop)</p>
         <p id="winnerNOP" class="text-2xl font-mono font-bold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
       <div class="text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Name</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Nama</p>
         <p id="winnerName" class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
       <div class="text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Address</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Alamat</p>
         <p id="winnerAddress" class="text-base font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
     </div>
@@ -51,9 +51,9 @@
         <thead class="bg-indigo-100 dark:bg-indigo-900">
           <tr>
             <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">#</th>
-            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">NOP</th>
-            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Name</th>
-            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Address</th>
+            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Nomor Objek Pajak (NOP)</th>
+            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Nama</th>
+            <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Alamat</th>
             <th class="py-3 px-3 border-b border-gray-300 dark:border-gray-600 text-left text-sm font-semibold text-indigo-700 dark:text-indigo-300">Time</th>
           </tr>
         </thead>
