@@ -28,11 +28,11 @@
         <p id="winnerNOP" class="text-2xl font-mono font-bold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
       <div class="text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Nama</p>
-        <p id="winnerName" class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500"></p>
+        <p id="winnerName" class="text-base font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
       <div class="text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500">Alamat</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-500"></p>
         <p id="winnerAddress" class="text-base font-semibold text-indigo-600 dark:text-indigo-400 transition-colors duration-500">-</p>
       </div>
     </div>
